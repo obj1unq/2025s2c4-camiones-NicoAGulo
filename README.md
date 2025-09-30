@@ -18,19 +18,22 @@ De las cosas que puede transportar el camión nos interesa el peso y la peligros
 
 
 ## El camión
-Se pide modelar un camión que transporta cosas que soporte los siguientes requerimientos:
+<!-- Se pide modelar un camión que transporta cosas que soporte los siguientes requerimientos: -->
 
 ### Carga y descarga
-Poder cargar una cosa, y también descargar una cosa.  
-No se puede cargar algo ya cargado ni descargar lo que no contiene el camión.
+<!-- Poder cargar una cosa, y también descargar una cosa.  
+No se puede cargar algo ya cargado ni descargar lo que no contiene el camión. -->
 
 #### Ejemplo
-- A un camión descargado se le carga Bumblebee.
-- Asegurarse que en las cosas cargadas sólo esté Bumblebee.
-- Cargar ahora a Knight Rider.
-- Asegurarse que las cosas cargadas son Bumblebee y Knight Rider.
+<!-- - A un camión descargado se le carga Bumblebee.
+- Asegurarse que en las cosas cargadas sólo esté Bumblebee. -->
+
+<!-- - Cargar ahora a Knight Rider.
+- Asegurarse que las cosas cargadas son Bumblebee y Knight Rider. -->
+
 - Descargar a Bumblebee.
 - Asegurarse que en las cosas cargadas sólo esté Knight Rider.
+
 - Intentar cargar a Knight Rider, no se puede porque ya está cargado.
 - Intentar descargar a Bumblebee, no se puede porque no estaba cargado.
 

@@ -1,0 +1,64 @@
+import cosas.*
+import camion.*
+
+describe "Camion vacio se le carga a Bumblebee" {
+  method initialize() {
+    camion.cosas().clear()
+  }
+  
+  test "El camion esta vacio" {
+    assert.that(camion.cosas().isEmpty())
+    assert.equals(0, camion.cosas().size())
+  }
+
+  test "Al camion se le agrega Bumblebee"{
+    camion.cargar(bumblebee)
+    
+    assert.that(camion.cosas().contains(bumblebee))
+    
+    assert.equals(1, camion.cosas().size())
+  }
+}
+
+describe "Camion con Bumblebee se le carga a Knight Rider" {
+  method initialize() {
+    camion.cargar(bumblebee)
+  }
+
+  test "Camion tiene a Bumblebee" {
+    assert.that(camion.cosas().contains(bumblebee))
+  }
+  
+  test "Se carga a Knight Rider" {
+    camion.cargar(knightRider)
+    
+    assert.that(camion.cosas().contains(knightRider))
+    
+    assert.equals(2, camion.cosas().size())
+  }
+}
+
+describe "Camion con Bumblebee y Knight Rider se le descarga Bumblebee" {
+    method initialize() {
+      camion.cargar(bumblebee)
+      camion.cargar(knightRider)
+    }
+  test "Camion contiene a Bumblebee y a Knight Rider" {
+    assert.that(camion.cosas().contains(bumblebee))
+    assert.that(camion.cosas().contains(knightRider))
+
+    assert.equals(2, camion.cosas().size())
+  }
+
+  test "Descargar a Bumblebee, quedando solo Knight Rider Y No se puede cargar a Knight Rider porque ya esta en el camion y no se puede descargar a Bumblebee porque no esta en camion."{
+    camion.descargar(bumblebee)
+
+    assert.that(camion.cosas().contains(knightRider))
+
+    assert.equals(1, camion.cosas().size())
+
+    
+  }
+
+
+}
