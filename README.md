@@ -9,12 +9,12 @@ Para eso requiere un sistema que le permita planificar qué cosas debe llevar el
 De las cosas que puede transportar el camión nos interesa el peso y la peligrosidad:
 Éstas son algunas de las cosas:
 
-* Knight Rider: pesa 500 kilos y su nivel de peligrosidad es 10.
-* Arena a granel: el peso es variable, la peligrosidad es 1.
-* Bumblebee: pesa 800 kilos y su nivel de peligrosidad es 15 si está transformado en auto o 30 si está como robot.
-* Paquete de ladrillos: cada ladrillo pesa 2 kilos, la cantidad de ladrillos que tiene puede variar. La peligrosidad es 2.
-* Batería antiaérea: el peso es 300 kilos si está con los misiles o 200 en otro caso. En cuanto a la peligrosidad es 100 si está con los misiles y 0 en otro caso.
-* Residuos radiactivos: el peso es variable y su peligrosidad es 200.
+<!-- * Knight Rider: pesa 500 kilos y su nivel de peligrosidad es 10. -->
+<!-- * Arena a granel: el peso es variable, la peligrosidad es 1. -->
+<!-- * Bumblebee: pesa 800 kilos y su nivel de peligrosidad es 15 si está transformado en auto o 30 si está como robot. -->
+<!-- * Paquete de ladrillos: cada ladrillo pesa 2 kilos, la cantidad de ladrillos que tiene puede variar. La peligrosidad es 2. -->
+<!-- * Batería antiaérea: el peso es 300 kilos si está con los misiles o 200 en otro caso. En cuanto a la peligrosidad es 100 si está con los misiles y 0 en otro caso. -->
+<!-- * Residuos radiactivos: el peso es variable y su peligrosidad es 200. -->
 
 
 ## El camión
