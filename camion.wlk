@@ -2,7 +2,7 @@ import cosas.*
 
 object camion {
 	const property cosas = #{}
-	const pesoDeTara=1000
+	const pesoDeTara = 1000
 	
 	method cargar(unaCosa) {
 		if (not cosas.contains(unaCosa)) {
@@ -17,34 +17,26 @@ object camion {
 		if (cosas.contains(unaCosa)) cosas.remove(unaCosa)
 		else self.error("No se puede descargar algo que no existe en el camion")
 	}
-
-	method esPesoPar(){
-		return self.cosas().all {n => (n.peso()%2 ==0)}
-	}
-
-	method tieneCargaConPesoDeterminado(kg){
-		return self.cosas().any{cosa => cosa.peso() == kg}
-	}
-
-	method pesoTotal(){
-		return pesoDeTara + self.cosas().sum{cosa => cosa.peso()}
-	}
-
-	method esExcesoDePeso(){
-		return self.pesoTotal()>2500
-	}
-
-	method cargaConNivelDePeligrosidadDeterminado(lvl){
-		return self.cosas().find{cosa => cosa.nivelPeligrosidad() == lvl}
-	}
-
-	method cargasConNivelDePeligrosidadMayorA(lvl){
-		return self.cosas().map{cosa => cosa.nivelPeligrosidad()>lvl}
-	}
-
-	method cargasMasPeligrosasQue(cosaPeligrosa){
-		return self.cargasConNivelDePeligrosidadMayorA(cosaPeligrosa.nivelPeligrosidad())
-	}
-
 	
+	method esPesoPar() = self.cosas().all({ n => (n.peso() % 2) == 0 })
+	
+	method tieneCargaConPesoDeterminado(kg) = self.cosas().any(
+		{ cosa => cosa.peso() == kg }
+	)
+	
+	method pesoTotal() = pesoDeTara + self.cosas().sum({ cosa => cosa.peso() })
+	
+	method esExcesoDePeso() = self.pesoTotal() > 2500
+	
+	method cargaConNivelDePeligrosidadDeterminado(lvl) = self.cosas().find(
+		{ cosa => cosa.nivelPeligrosidad() == lvl }
+	)
+	
+	method cargasConNivelDePeligrosidadMayorA(lvl) = self.cosas().filter(
+		{ cosa => cosa.nivelPeligrosidad() > lvl }
+	)
+	
+	method cargasMasPeligrosasQue(
+		cosaPeligrosa
+	) = self.cargasConNivelDePeligrosidadMayorA(cosaPeligrosa.nivelPeligrosidad())
 }

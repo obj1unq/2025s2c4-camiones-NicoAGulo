@@ -62,7 +62,7 @@ object bateriaAntiaerea{
 	}
 }
 
-const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 500)
+const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 10)
 
 const arenaAGranel = new Cosa(nivelPeligrosidad = 1)
 

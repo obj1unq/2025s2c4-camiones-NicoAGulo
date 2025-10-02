@@ -10,8 +10,8 @@ describe "Camion vacio se le carga a Bumblebee" {
     assert.that(camion.cosas().isEmpty())
     assert.equals(0, camion.cosas().size())
   }
-
-  test "Al camion se le agrega Bumblebee"{
+  
+  test "Al camion se le agrega Bumblebee" {
     camion.cargar(bumblebee)
     
     assert.that(camion.cosas().contains(bumblebee))
@@ -24,7 +24,7 @@ describe "Camion con Bumblebee se le carga a Knight Rider" {
   method initialize() {
     camion.cargar(bumblebee)
   }
-
+  
   test "Camion tiene a Bumblebee" {
     assert.that(camion.cosas().contains(bumblebee))
   }
@@ -39,24 +39,25 @@ describe "Camion con Bumblebee se le carga a Knight Rider" {
 }
 
 describe "Camion con Bumblebee y Knight Rider se le descarga Bumblebee" {
-    method initialize() {
-      camion.cargar(bumblebee)
-      camion.cargar(knightRider)
-    }
+  method initialize() {
+    camion.cargar(bumblebee)
+    camion.cargar(knightRider)
+  }
+  
   test "Camion contiene a Bumblebee y a Knight Rider" {
     assert.that(camion.cosas().contains(bumblebee))
     assert.that(camion.cosas().contains(knightRider))
-
+    
     assert.equals(2, camion.cosas().size())
   }
-
-  test "Descargar a Bumblebee, quedando solo Knight Rider Y No se puede cargar a Knight Rider porque ya esta en el camion y no se puede descargar a Bumblebee porque no esta en camion."{
+  
+  test "Descargar a Bumblebee, quedando solo Knight Rider Y No se puede cargar a Knight Rider porque ya esta en el camion y no se puede descargar a Bumblebee porque no esta en camion." {
     camion.descargar(bumblebee)
-
+    
     assert.that(camion.cosas().contains(knightRider))
-
+    
     assert.equals(1, camion.cosas().size())
-
+    
     assert.throwsException({ camion.cargar(knightRider) })
     assert.throwsException({ camion.descargar(bumblebee) })
   }
@@ -65,34 +66,36 @@ describe "Camion con Bumblebee y Knight Rider se le descarga Bumblebee" {
 describe "El peso de cada uno de los objetos cargados es un numero par" {
   test "Un objeto de peso par en la carga hace que el metodo esPesoPar() devuelva True" {
     camion.cargar(bumblebee)
-
+    
     assert.that(camion.cosas().contains(bumblebee))
-
+    
     assert.that(camion.esPesoPar())
   }
+  
   test "Un objeto de peso impar en la carga hace que el metodo esPesoPar() devuelva False" {
     knightRider.peso(3)
     
     camion.cargar(knightRider)
-
+    
     assert.that(camion.cosas().contains(knightRider))
-
+    
     assert.that(not camion.esPesoPar())
   }
-
-  test "Varios objetos que son pares en la carga hace que el metodo esPesoPar() devuelva True"{
+  
+  test "Varios objetos que son pares en la carga hace que el metodo esPesoPar() devuelva True" {
     camion.cargar(bumblebee)
     camion.cargar(knightRider)
-
+    
     assert.that(camion.esPesoPar())
   }
-  test "Varios objetos pares e impares en la carga hace que el metodo esPesoPar() devuelva False"{
+  
+  test "Varios objetos pares e impares en la carga hace que el metodo esPesoPar() devuelva False" {
     camion.cargar(bumblebee)
-
+    
     knightRider.peso(3)
-
+    
     camion.cargar(knightRider)
-
+    
     assert.notThat(camion.esPesoPar())
   }
 }
@@ -102,47 +105,49 @@ describe "El metodo tieneCargaConPesoDeterminado(kg) funciona correctamente" {
     camion.cargar(paqueteLadrillos)
     camion.cargar(bumblebee)
     camion.cargar(knightRider)
-
+    
     assert.that(camion.tieneCargaConPesoDeterminado(2))
   }
+  
   test "tieneCargaConPesoDeterminado(kg) devuelve la carga que tenga 800kg de peso (bumblebee) " {
     camion.cargar(paqueteLadrillos)
     camion.cargar(bumblebee)
     camion.cargar(knightRider)
-
+    
     assert.that(camion.tieneCargaConPesoDeterminado(800))
   }
-
+  
   test "tieneCargaConPesoDeterminado(kg) no devuelve nada porque se le pasa como argumento un peso que nadie tiene (13) " {
     camion.cargar(paqueteLadrillos)
     camion.cargar(bumblebee)
     camion.cargar(knightRider)
-
+    
     assert.throwsException(camion.tieneCargaConPesoDeterminado(13))
   }
 }
 
-describe "El metodo pesoTotal() funciona correctamente"{
+describe "El metodo pesoTotal() funciona correctamente" {
   test "El peso total del camion es 1000 (solo tara)" {
     assert.equals(1000, camion.pesoTotal())
   }
-
-  test "El peso total del camion es 1800 (tara + bumblebee)"{
+  
+  test "El peso total del camion es 1800 (tara + bumblebee)" {
     camion.cargar(bumblebee)
-
+    
     assert.equals(1800, camion.pesoTotal())
   }
 }
 
-describe "El metodo esExcesoDePeso() funciona correctamente"{
+describe "El metodo esExcesoDePeso() funciona correctamente" {
   test "No hay exceso de peso" {
     assert.notThat(camion.esExcesoDePeso())
   }
+  
   test "Hay exceso de peso" {
     camion.cargar(bumblebee)
     knightRider.peso(2000)
     camion.cargar(knightRider)
-
+    
     assert.that(camion.esExcesoDePeso())
   }
 }
@@ -153,30 +158,83 @@ describe "El metodo cargaConNivelDePeligrosidadDeterminado(lvl) funciona correct
     camion.cargar(bumblebee)
     camion.cargar(residuosRadioactivos)
   }
+  
   test "cargaConNivelDePeligrosidadDeterminado(0) devuelve la bateria antiaerea" {
-    assert.equals(bateriaAntiaerea, camion.cargaConNivelDePeligrosidadDeterminado(0))
+    assert.equals(
+      bateriaAntiaerea,
+      camion.cargaConNivelDePeligrosidadDeterminado(0)
+    )
   }
+  
   test "cargaConNivelDePeligrosidadDeterminado(15) devuelve a bumblebee" {
     assert.equals(bumblebee, camion.cargaConNivelDePeligrosidadDeterminado(15))
   }
+  
   test "cargaConNivelDePeligrosidadDeterminado(200) devuelve a los residuos radioactivos" {
-    assert.equals(residuosRadioactivos, camion.cargaConNivelDePeligrosidadDeterminado(200))
+    assert.equals(
+      residuosRadioactivos,
+      camion.cargaConNivelDePeligrosidadDeterminado(200)
+    )
   }
+  
   test "cargaConNivelDePeligrosidadDeterminado(30) debe romper, porque no se encuentra nada" {
-    assert.throwsException({ camion.cargaConNivelDePeligrosidadDeterminado(30) })
+    assert.throwsException(
+      { camion.cargaConNivelDePeligrosidadDeterminado(30) }
+    )
   }
+  
   test "Si se cambia a Bumblebee a modo robot y se vuelve a pedir algo de 30, entonces encuentra a Bumblebee" {
     bumblebee.transformar()
     assert.equals(bumblebee, camion.cargaConNivelDePeligrosidadDeterminado(30))
   }
+  
   test "Si se carga la batería con misiles y se pide algo de peligrosidad 100 entonces encuentra a la batería" {
     bateriaAntiaerea.recargarMisiles()
-    assert.equals(bateriaAntiaerea, camion.cargaConNivelDePeligrosidadDeterminado(100))
+    assert.equals(
+      bateriaAntiaerea,
+      camion.cargaConNivelDePeligrosidadDeterminado(100)
+    )
   }
 }
 
-describe "name" {
-  test "description" {
-    
+describe "Cargas que superen cierto nivel de peligrosidad o mas peligrosidad que otra cosa para un camión cargado con Knight Rider y la batería antiaérea cargada" {
+  method initialize() {
+    camion.cargar(knightRider)
+    camion.cargar(bateriaAntiaerea)
+    bateriaAntiaerea.recargarMisiles()
   }
+  
+  test "En las cosas más peligrosas de 15 sólo está la batería antiaérea" {
+    // assert.that(knightRider.nivelPeligrosidad()<15)
+    assert.that(
+      camion.cargasConNivelDePeligrosidadMayorA(15).contains(bateriaAntiaerea)
+    )
+
+    assert.that(
+      not camion.cargasConNivelDePeligrosidadMayorA(15).contains(knightRider)
+    )
+  }
+
+  test "En las cosas más peligrosas que Bumblebee sólo está la batería antiaérea" {
+    assert.that(camion.cargasMasPeligrosasQue(bumblebee).contains(bateriaAntiaerea))
+  }
+
+  test "Las cosas que superan 2 de peligrosidad son Knight Rider y la batería antiaérea." {
+      assert.that(camion.cargasConNivelDePeligrosidadMayorA(2).contains(bateriaAntiaerea))
+      assert.that(camion.cargasConNivelDePeligrosidadMayorA(2).contains(knightRider))
+  }
+
+  test "Las cosas más peligrosas que el paquete de ladrillos son Knight Rider y la batería antiaérea." {
+    assert.that(camion.cargasMasPeligrosasQue(paqueteLadrillos).contains(bateriaAntiaerea))
+    assert.that(camion.cargasMasPeligrosasQue(paqueteLadrillos).contains(knightRider))
+  }
+
+  test "No hay cosas más peligrosas que 200" {
+      assert.that(camion.cargasConNivelDePeligrosidadMayorA(200).isEmpty()) 
+  }
+
+  test "No hay nada más peligroso que los residuos radiactivos" {
+    assert.that(camion.cargasMasPeligrosasQue(residuosRadioactivos).isEmpty())
+  }
+
 }
