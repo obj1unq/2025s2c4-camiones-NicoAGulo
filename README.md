@@ -80,30 +80,30 @@ El camión se encuentra excedido de peso si el peso total es superior al peso m�
 
 
 ### Cosas peligrosas
-
+<!-- 
 Saber:
 - Cosas cargadas que estén en el camión que superen cierto nivel de peligrosidad.
 - Cosas cargadas que estén en el camión que sean más peligrosas que otra cosa indicada.
 
-Tip: buscá reutilizar el código.
+Tip: buscá reutilizar el código. -->
 
 #### Ejemplo:
-Para un camión cargado con Knight Rider y la batería antiaérea cargada:
+<!-- Para un camión cargado con Knight Rider y la batería antiaérea cargada:
 
 - En las cosas más peligrosas de 15 sólo está la batería antiaérea.
 - En las cosas más peligrosas que Bumblebee sólo está la batería antiaérea.
 - Las cosas que superan 2 de peligrosidad son Knight Rider y la batería antiaérea.
 - Las cosas más peligrosas que el paquete de ladrillos son Knight Rider y la batería antiaérea.
 - No hay cosas más peligrosas que 200.
-- No hay nada más peligroso que los residuos radiactivos.
+- No hay nada más peligroso que los residuos radiactivos. -->
 
 ### Puede circular en ruta
-Saber si el camión puede circular en ruta, lo que ocurre si no está excedido de peso y, además, ninguno de los objetos cargados supera el nivel máximo de peligrosidad indicado.
+<!-- Saber si el camión puede circular en ruta, lo que ocurre si no está excedido de peso y, además, ninguno de los objetos cargados supera el nivel máximo de peligrosidad indicado. -->
 
 #### Ejemplos:
-- Si el camión tiene a Bumblebee en auto y un paquete de 300 ladrillos, puede circular en una ruta con nivel 20.
+<!-- - Si el camión tiene a Bumblebee en auto y un paquete de 300 ladrillos, puede circular en una ruta con nivel 20.
 - Pero si el camión tiene el paquete de 400 ladrillos y Bumblebee en modo auto ya no puede circular en la ruta de nivel 20, por estar excedido de peso.
-- Tampoco puede circular en una ruta de nivel 20 si tiene un paquete de 300 ladrillos y Bumblebee está en modo robot.
+- Tampoco puede circular en una ruta de nivel 20 si tiene un paquete de 300 ladrillos y Bumblebee está en modo robot. -->
 
 ### Más cosas:
 Agregar las siguientes cosas para ser transportadas por el camión:

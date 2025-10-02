@@ -209,32 +209,69 @@ describe "Cargas que superen cierto nivel de peligrosidad o mas peligrosidad que
     assert.that(
       camion.cargasConNivelDePeligrosidadMayorA(15).contains(bateriaAntiaerea)
     )
-
+    
     assert.that(
       not camion.cargasConNivelDePeligrosidadMayorA(15).contains(knightRider)
     )
   }
-
+  
   test "En las cosas más peligrosas que Bumblebee sólo está la batería antiaérea" {
-    assert.that(camion.cargasMasPeligrosasQue(bumblebee).contains(bateriaAntiaerea))
+    assert.that(
+      camion.cargasMasPeligrosasQue(bumblebee).contains(bateriaAntiaerea)
+    )
   }
-
+  
   test "Las cosas que superan 2 de peligrosidad son Knight Rider y la batería antiaérea." {
-      assert.that(camion.cargasConNivelDePeligrosidadMayorA(2).contains(bateriaAntiaerea))
-      assert.that(camion.cargasConNivelDePeligrosidadMayorA(2).contains(knightRider))
+    assert.that(
+      camion.cargasConNivelDePeligrosidadMayorA(2).contains(bateriaAntiaerea)
+    )
+    assert.that(
+      camion.cargasConNivelDePeligrosidadMayorA(2).contains(knightRider)
+    )
   }
-
+  
   test "Las cosas más peligrosas que el paquete de ladrillos son Knight Rider y la batería antiaérea." {
-    assert.that(camion.cargasMasPeligrosasQue(paqueteLadrillos).contains(bateriaAntiaerea))
-    assert.that(camion.cargasMasPeligrosasQue(paqueteLadrillos).contains(knightRider))
+    assert.that(
+      camion.cargasMasPeligrosasQue(paqueteLadrillos).contains(bateriaAntiaerea)
+    )
+    assert.that(
+      camion.cargasMasPeligrosasQue(paqueteLadrillos).contains(knightRider)
+    )
   }
-
+  
   test "No hay cosas más peligrosas que 200" {
-      assert.that(camion.cargasConNivelDePeligrosidadMayorA(200).isEmpty()) 
+    assert.that(camion.cargasConNivelDePeligrosidadMayorA(200).isEmpty())
   }
-
+  
   test "No hay nada más peligroso que los residuos radiactivos" {
     assert.that(camion.cargasMasPeligrosasQue(residuosRadioactivos).isEmpty())
   }
-
 }
+
+describe "El metodo puedeCircularEnRuta(maxNivelPeligrosidad) funciona correctamente" {
+  test "Si el camión tiene a Bumblebee en auto y un paquete de 300 ladrillos, puede circular en una ruta con nivel 20." {
+    camion.cargar(bumblebee)
+    paqueteLadrillos.cantidadLadrillos(300)
+    camion.cargar(paqueteLadrillos)
+    
+    assert.that(camion.puedeCircularEnRuta(20))
+  }
+  
+  test "si el camión tiene el paquete de 400 ladrillos y Bumblebee en modo auto ya no puede circular en la ruta de nivel 20, por estar excedido de peso." {
+    camion.cargar(bumblebee)
+    paqueteLadrillos.cantidadLadrillos(400)
+    camion.cargar(paqueteLadrillos)
+    
+    assert.notThat(camion.puedeCircularEnRuta(20))
+  }
+  
+  test "Tampoco puede circular en una ruta de nivel 20 si tiene un paquete de 300 ladrillos y Bumblebee está en modo robot" {
+    bumblebee.transformar()
+    camion.cargar(bumblebee)
+    paqueteLadrillos.cantidadLadrillos(300)
+    camion.cargar(paqueteLadrillos)
+    
+    assert.notThat(camion.puedeCircularEnRuta(20))
+  }
+}
+
