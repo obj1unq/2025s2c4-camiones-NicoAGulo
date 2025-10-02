@@ -6,7 +6,7 @@ class Cosa {
 object bumblebee {
 	const property peso = 800
 	var modoTransformacion = "auto"
-
+	
 	method nivelPeligrosidad() {
 		if (modoTransformacion == "auto") {
 			return 15
@@ -26,39 +26,39 @@ object bumblebee {
 			modoTransformacion = "auto"
 		}
 	}
-
-	method modoTransformacion(){return modoTransformacion}
+	
+	method modoTransformacion() = modoTransformacion
 }
 
-object paqueteLadrillos{
-	var property cantidadLadrillos=1
-
-	method peso(){return cantidadLadrillos*2}
-
-	method nivelPeligrosidad()=2
+object paqueteLadrillos {
+	var property cantidadLadrillos = 1
+	
+	method peso() = cantidadLadrillos * 2
+	
+	method nivelPeligrosidad() = 2
 }
 
-object bateriaAntiaerea{
+object bateriaAntiaerea {
 	var property estaConMisiles = false
-
-	method peso(){
-		if (estaConMisiles){
+	
+	method peso() {
+		if (estaConMisiles) {
 			return 300
-		}else{
+		} else {
 			return 200
 		}
 	}
-
-	method nivelPeligrosidad(){
-		if (estaConMisiles){
+	
+	method nivelPeligrosidad() {
+		if (estaConMisiles) {
 			return 100
-		}else{
+		} else {
 			return 0
 		}
 	}
-
-	method recargarMisiles(){
-		estaConMisiles=true
+	
+	method recargarMisiles() {
+		estaConMisiles = true
 	}
 }
 
@@ -66,26 +66,37 @@ const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 10)
 
 const arenaAGranel = new Cosa(nivelPeligrosidad = 1)
 
-const residuosRadioactivos = new Cosa(nivelPeligrosidad=200)
+const residuosRadioactivos = new Cosa(nivelPeligrosidad = 200)
 
-const misiles = new Cosa ()
+const misiles = new Cosa()
 
 //MAS COSAS
-
-object contenedorPortuario{
+object contenedorPortuario {
 	const property cosas = #{}
-
+	
 	method peso() = 100 + self.pesoContenido()
-
-	method pesoContenido(){
-		return self.cosas().sum({ cosa => cosa.peso() })
-	}
-
-	method nivelDePeligrosidad(){
-		if (self.cosas().isEmpty()){
+	
+	method pesoContenido() = self.cosas().sum({ cosa => cosa.peso() })
+	
+	method nivelDePeligrosidad() {
+		if (self.cosas().isEmpty()) {
 			return 0
-		}else{
-			return self.cosas().max({elemento => elemento.nivelPeligrosidad()}).nivelPeligrosidad()
+		} else {
+			return self.cosas().max(
+				{ elemento => elemento.nivelPeligrosidad() }
+			).nivelPeligrosidad()
 		}
+	}
+}
+
+object embalajeDeSeguridad {
+	var property cosaEnvuelta = null
+	
+	method peso() = cosaEnvuelta.peso() 
+	
+	method nivelDePeligrosidad() = cosaEnvuelta.nivelPeligrosidad()/2
+
+	method embalarCosa(cosa){
+		cosaEnvuelta=cosa
 	}
 }

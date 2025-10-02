@@ -280,15 +280,29 @@ describe "Contenedor portuario" {
     assert.equals(100, contenedorPortuario.peso())
     assert.equals(0, contenedorPortuario.nivelDePeligrosidad())
   }
-
+  
   test "El contenedor portuario que tiene a Knight Rider y 50 kg de arena a granel pesa 650 y su peligrosidad es 10" {
     contenedorPortuario.cosas().add(knightRider)
     arenaAGranel.peso(50)
     contenedorPortuario.cosas().add(arenaAGranel)
-
+    
     assert.equals(650, contenedorPortuario.peso())
     assert.equals(10, contenedorPortuario.nivelDePeligrosidad())
+  }
+}
 
+describe "Embalaje de seguridad" {
+    test "Si el embalaje de seguridad envuelve a Knight Rider, su peso es 500 y su peligrosidad es 5." {
+    embalajeDeSeguridad.embalarCosa(knightRider)
     
+    assert.equals(500, embalajeDeSeguridad.peso())
+    assert.equals(5, embalajeDeSeguridad.nivelDePeligrosidad())
+  }
+  
+  test "Si el embalaje de seguridad envuelve a Bumblebee en modo auto, su peso es 800 y su peligrosidad 7,5" {
+    embalajeDeSeguridad.embalarCosa(bumblebee)
+    
+    assert.equals(800, embalajeDeSeguridad.peso())
+    assert.equals(7.5, embalajeDeSeguridad.nivelDePeligrosidad())
   }
 }

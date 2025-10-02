@@ -108,14 +108,14 @@ Tip: buscá reutilizar el código. -->
 ### Más cosas:
 Agregar las siguientes cosas para ser transportadas por el camión:
 
-* Contenedor portuario: un contenedor puede tener otras cosas adentro. El peso es 100 + la suma de todas las cosas que estén adentro. Es tan peligroso como el objeto más peligroso que contiene. Si está vacío, su peligrosidad es 0.
+<!-- * Contenedor portuario: un contenedor puede tener otras cosas adentro. El peso es 100 + la suma de todas las cosas que estén adentro. Es tan peligroso como el objeto más peligroso que contiene. Si está vacío, su peligrosidad es 0. -->
 * Embalaje de seguridad: es una cobertura que envuelve a cualquier otra cosa. El peso es el peso de la cosa que tenga adentro. El nivel de peligrosidad es la mitad del nivel de peligrosidad de lo que envuelve.
 
 ### Ejemplos
-- El contenedor portuario vacío pesa 100 y su peligrosidad es 0.
-- El contenedor portuario que tiene a Knight Rider y 50 kg de arena a granel pesa 650 y su peligrosidad es 10.
-- Si el embalaje de seguridad envuelve a Knight Rider, su peso es 500 y su peligrosidad es 5.
-- Si el embalaje de seguridad envuelve a Bumblebee en modo auto, su peso es 800 y su peligrosidad 7,5.
+<!-- - El contenedor portuario vacío pesa 100 y su peligrosidad es 0.
+- El contenedor portuario que tiene a Knight Rider y 50 kg de arena a granel pesa 650 y su peligrosidad es 10. -->
+<!-- - Si el embalaje de seguridad envuelve a Knight Rider, su peso es 500 y su peligrosidad es 5. -->
+<!-- - Si el embalaje de seguridad envuelve a Bumblebee en modo auto, su peso es 800 y su peligrosidad 7,5. -->
 
 ### Tiene algo que pesa entre dos valores
 
