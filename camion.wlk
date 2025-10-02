@@ -2,6 +2,7 @@ import cosas.*
 
 object camion {
 	const property cosas = #{}
+	const pesoDeTara=1000
 	
 	method cargar(unaCosa) {
 		if (not cosas.contains(unaCosa)) {
@@ -24,4 +25,13 @@ object camion {
 	method tienePesoDeterminado(kg){
 		return self.cosas().any{cosa => cosa.peso() == kg}
 	}
+
+	method pesoTotal(){
+		return pesoDeTara + self.cosas().sum{cosa => cosa.peso()}
+	}
+
+	method esExcesoDePeso(){
+		return self.pesoTotal()>2500
+	}
+
 }

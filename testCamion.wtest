@@ -122,3 +122,27 @@ describe "El metodo tienePesoDeterminado(kg) funciona correctamente" {
   }
 }
 
+describe "El metodo pesoTotal() funciona correctamente"{
+  test "El peso total del camion es 1000 (solo tara)" {
+    assert.equals(1000, camion.pesoTotal())
+  }
+
+  test "El peso total del camion es 1800 (tara + bumblebee)"{
+    camion.cargar(bumblebee)
+
+    assert.equals(1800, camion.pesoTotal())
+  }
+}
+
+describe "El metodo esExcesoDePeso() funciona correctamente"{
+  test "No hay exceso de peso" {
+    assert.notThat(camion.esExcesoDePeso())
+  }
+  test "Hay exceso de peso" {
+    camion.cargar(bumblebee)
+    knightRider.peso(2000)
+    camion.cargar(knightRider)
+
+    assert.that(camion.esExcesoDePeso())
+  }
+}
