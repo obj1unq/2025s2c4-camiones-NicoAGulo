@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mQyQH7wV)
 # Camión de transporte
 
 Una empresa de transporte quiere administrar mejor las cargas que lleva un camión.
@@ -8,120 +9,123 @@ Para eso requiere un sistema que le permita planificar qué cosas debe llevar el
 De las cosas que puede transportar el camión nos interesa el peso y la peligrosidad:
 Éstas son algunas de las cosas:
 
-* Knight Rider: pesa 500 kilos y su nivel de peligrosidad es 10.
-* Arena a granel: el peso es variable, la peligrosidad es 1.
-* Bumblebee: pesa 800 kilos y su nivel de peligrosidad es 15 si está transformado en auto o 30 si está como robot.
-* Paquete de ladrillos: cada ladrillo pesa 2 kilos, la cantidad de ladrillos que tiene puede variar. La peligrosidad es 2.
-* Batería antiaérea: el peso es 300 kilos si está con los misiles o 200 en otro caso. En cuanto a la peligrosidad es 100 si está con los misiles y 0 en otro caso.
-* Residuos radiactivos: el peso es variable y su peligrosidad es 200.
+<!-- * Knight Rider: pesa 500 kilos y su nivel de peligrosidad es 10. -->
+<!-- * Arena a granel: el peso es variable, la peligrosidad es 1. -->
+<!-- * Bumblebee: pesa 800 kilos y su nivel de peligrosidad es 15 si está transformado en auto o 30 si está como robot. -->
+<!-- * Paquete de ladrillos: cada ladrillo pesa 2 kilos, la cantidad de ladrillos que tiene puede variar. La peligrosidad es 2. -->
+<!-- * Batería antiaérea: el peso es 300 kilos si está con los misiles o 200 en otro caso. En cuanto a la peligrosidad es 100 si está con los misiles y 0 en otro caso. -->
+<!-- * Residuos radiactivos: el peso es variable y su peligrosidad es 200. -->
 
 
 ## El camión
-Se pide modelar un camión que transporta cosas que soporte los siguientes requerimientos:
+<!-- Se pide modelar un camión que transporta cosas que soporte los siguientes requerimientos: -->
 
 ### Carga y descarga
-Poder cargar una cosa, y también descargar una cosa.  
-No se puede cargar algo ya cargado ni descargar lo que no contiene el camión.
+<!-- Poder cargar una cosa, y también descargar una cosa.  
+No se puede cargar algo ya cargado ni descargar lo que no contiene el camión. -->
 
 #### Ejemplo
-- A un camión descargado se le carga Bumblebee.
-- Asegurarse que en las cosas cargadas sólo esté Bumblebee.
-- Cargar ahora a Knight Rider.
-- Asegurarse que las cosas cargadas son Bumblebee y Knight Rider.
-- Descargar a Bumblebee.
+<!-- - A un camión descargado se le carga Bumblebee.
+- Asegurarse que en las cosas cargadas sólo esté Bumblebee. -->
+
+<!-- - Cargar ahora a Knight Rider.
+- Asegurarse que las cosas cargadas son Bumblebee y Knight Rider. -->
+
+<!-- - Descargar a Bumblebee.
 - Asegurarse que en las cosas cargadas sólo esté Knight Rider.
+
 - Intentar cargar a Knight Rider, no se puede porque ya está cargado.
-- Intentar descargar a Bumblebee, no se puede porque no estaba cargado.
+- Intentar descargar a Bumblebee, no se puede porque no estaba cargado. -->
 
 ### Todo peso par
-Saber si el peso de cada uno de los objetos cargados es un número par.
+<!-- Saber si el peso de cada uno de los objetos cargados es un número par. -->
 
 ### Ejemplo
-- Para un camión cargado con Bumblebee y 50 kg de arena a granel todo peso es par.
-- En cambio, si la arena a granel pesa 51 kg entonces no.
+<!-- - Para un camión cargado con Bumblebee y 50 kg de arena a granel todo peso es par.
+- En cambio, si la arena a granel pesa 51 kg entonces no. -->
 
 ### Hay alguno que pesa 
-Saber si el camión tiene alguna cosa que pesa exactamente una cantidad de kilogramos dada.
+<!-- Saber si el camión tiene alguna cosa que pesa exactamente una cantidad de kilogramos dada. -->
 
 #### Ejemplo
-Para un camión cargado con Bumblebee y 50 kg de arena a granel:
+<!-- Para un camión cargado con Bumblebee y 50 kg de arena a granel:
 - Si se pregunta si hay algo que pesa 50 debe contestar que sí (es verdadero, por la arena).
 - Si se pregunta si hay algo que pesa 800 debe contestar que sí (es verdadero, por Bumblebee).
-- Si se pregunta si hay algo que pesa 500 debe contestar que no (es falso, ninguno pesa eso).
+- Si se pregunta si hay algo que pesa 500 debe contestar que no (es falso, ninguno pesa eso). -->
 
 ### Peso y exceso de peso
 
-Saber el peso total del camión, que es la suma del peso del camión vacío (tara) y su carga. La tara del camión es de 1000 kilos.
+<!-- Saber el peso total del camión, que es la suma del peso del camión vacío (tara) y su carga. La tara del camión es de 1000 kilos.
 
-El camión se encuentra excedido de peso si el peso total es superior al peso máximo aceptable, que es de 2500 kilos.
+El camión se encuentra excedido de peso si el peso total es superior al peso máximo aceptable, que es de 2500 kilos. -->
 
 ### Ejemplo
 
-Si el camión tiene a Bumblebee y un paquete de 300 ladrillos, entonces el peso total es 2400 y no está excedido de peso. Pero si el paquete de ladrillos contiene 400 ladrillos, entonces el peso total es 2600 y sí está excedido.
+<!-- Si el camión tiene a Bumblebee y un paquete de 300 ladrillos, entonces el peso total es 2400 y no está excedido de peso. Pero si el paquete de ladrillos contiene 400 ladrillos, entonces el peso total es 2600 y sí está excedido. -->
 
 ### El de nivel
 
-Encontrar una cosa cargada cuyo nivel de peligrosidad coincida exactamente con el valor indicado.
+<!-- Encontrar una cosa cargada cuyo nivel de peligrosidad coincida exactamente con el valor indicado. -->
 
 #### Ejemplo
 
-Para un camión cargado con Bumblebee en modo auto, la batería antiaérea descargada y los residuos radiactivos: 
+<!-- Para un camión cargado con Bumblebee en modo auto, la batería antiaérea descargada y los residuos radiactivos: 
 
 - Si se pide algo de nivel 0 debe encontrar a la batería antiaérea.
 - Si se pide algo de nivel 15 debe encontrar a Bumblebee.
 - Si se pide algo de nivel 200 debe encontrar a los residuos.
 - Si se pide algo de nivel 30 debe romper, porque no se encuentra nada.
 - Si se cambia a Bumblebee a modo robot y se vuelve a pedir algo de 30, entonces encuentra a Bumblebee.
-- Si se carga la batería con misiles y se pide algo de peligrosidad 100 entonces encuentra a la batería.
+- Si se carga la batería con misiles y se pide algo de peligrosidad 100 entonces encuentra a la batería. -->
 
 
 ### Cosas peligrosas
-
+<!-- 
 Saber:
 - Cosas cargadas que estén en el camión que superen cierto nivel de peligrosidad.
 - Cosas cargadas que estén en el camión que sean más peligrosas que otra cosa indicada.
 
-Tip: buscá reutilizar el código.
+Tip: buscá reutilizar el código. -->
 
 #### Ejemplo:
-Para un camión cargado con Knight Rider y la batería antiaérea cargada:
+<!-- Para un camión cargado con Knight Rider y la batería antiaérea cargada:
 
 - En las cosas más peligrosas de 15 sólo está la batería antiaérea.
 - En las cosas más peligrosas que Bumblebee sólo está la batería antiaérea.
 - Las cosas que superan 2 de peligrosidad son Knight Rider y la batería antiaérea.
 - Las cosas más peligrosas que el paquete de ladrillos son Knight Rider y la batería antiaérea.
 - No hay cosas más peligrosas que 200.
-- No hay nada más peligroso que los residuos radiactivos.
+- No hay nada más peligroso que los residuos radiactivos. -->
 
 ### Puede circular en ruta
-Saber si el camión puede circular en ruta, lo que ocurre si no está excedido de peso y, además, ninguno de los objetos cargados supera el nivel máximo de peligrosidad indicado.
+<!-- Saber si el camión puede circular en ruta, lo que ocurre si no está excedido de peso y, además, ninguno de los objetos cargados supera el nivel máximo de peligrosidad indicado. -->
 
 #### Ejemplos:
-- Si el camión tiene a Bumblebee en auto y un paquete de 300 ladrillos, puede circular en una ruta con nivel 20.
+<!-- - Si el camión tiene a Bumblebee en auto y un paquete de 300 ladrillos, puede circular en una ruta con nivel 20.
 - Pero si el camión tiene el paquete de 400 ladrillos y Bumblebee en modo auto ya no puede circular en la ruta de nivel 20, por estar excedido de peso.
-- Tampoco puede circular en una ruta de nivel 20 si tiene un paquete de 300 ladrillos y Bumblebee está en modo robot.
+- Tampoco puede circular en una ruta de nivel 20 si tiene un paquete de 300 ladrillos y Bumblebee está en modo robot. -->
 
 ### Más cosas:
 Agregar las siguientes cosas para ser transportadas por el camión:
 
-* Contenedor portuario: un contenedor puede tener otras cosas adentro. El peso es 100 + la suma de todas las cosas que estén adentro. Es tan peligroso como el objeto más peligroso que contiene. Si está vacío, su peligrosidad es 0.
+<!-- * Contenedor portuario: un contenedor puede tener otras cosas adentro. El peso es 100 + la suma de todas las cosas que estén adentro. Es tan peligroso como el objeto más peligroso que contiene. Si está vacío, su peligrosidad es 0. -->
 * Embalaje de seguridad: es una cobertura que envuelve a cualquier otra cosa. El peso es el peso de la cosa que tenga adentro. El nivel de peligrosidad es la mitad del nivel de peligrosidad de lo que envuelve.
 
 ### Ejemplos
-- El contenedor portuario vacío pesa 100 y su peligrosidad es 0.
-- El contenedor portuario que tiene a Knight Rider y 50 kg de arena a granel pesa 650 y su peligrosidad es 10.
-- Si el embalaje de seguridad envuelve a Knight Rider, su peso es 500 y su peligrosidad es 5.
-- Si el embalaje de seguridad envuelve a Bumblebee en modo auto, su peso es 800 y su peligrosidad 7,5.
+<!-- - El contenedor portuario vacío pesa 100 y su peligrosidad es 0.
+- El contenedor portuario que tiene a Knight Rider y 50 kg de arena a granel pesa 650 y su peligrosidad es 10. -->
+<!-- - Si el embalaje de seguridad envuelve a Knight Rider, su peso es 500 y su peligrosidad es 5. -->
+<!-- - Si el embalaje de seguridad envuelve a Bumblebee en modo auto, su peso es 800 y su peligrosidad 7,5. -->
 
 ### Tiene algo que pesa entre dos valores
 
-Saber si el camión tiene algo que pesa entre dos valores (mínimo y máximo).
+<!-- Saber si el camión tiene algo que pesa entre dos valores (mínimo y máximo). -->
 
 #### Ejemplo
-Para un camión cargado con Bumblebee y un paquete de 300 ladrillos:
+<!-- Para un camión cargado con Bumblebee y un paquete de 300 ladrillos:
 - Tiene algo que pesa entre 5 y 700.
 - Tiene algo que pesa entre 5 y 1000.
-- No tiene algo que pese entre 900 y 1000.
+- No tiene algo que pese entre 900 y 1000. -->
 
 ### Cosa más pesada
 La cosa más pesada que tenga el camión. Ojo que lo que se pide es _la cosa_ y no su peso.
