@@ -31,14 +31,14 @@ No se puede cargar algo ya cargado ni descargar lo que no contiene el camión. -
 <!-- - Cargar ahora a Knight Rider.
 - Asegurarse que las cosas cargadas son Bumblebee y Knight Rider. -->
 
-- Descargar a Bumblebee.
+<!-- - Descargar a Bumblebee.
 - Asegurarse que en las cosas cargadas sólo esté Knight Rider.
 
 - Intentar cargar a Knight Rider, no se puede porque ya está cargado.
-- Intentar descargar a Bumblebee, no se puede porque no estaba cargado.
+- Intentar descargar a Bumblebee, no se puede porque no estaba cargado. -->
 
 ### Todo peso par
-Saber si el peso de cada uno de los objetos cargados es un número par.
+<!-- Saber si el peso de cada uno de los objetos cargados es un número par. -->
 
 ### Ejemplo
 - Para un camión cargado con Bumblebee y 50 kg de arena a granel todo peso es par.

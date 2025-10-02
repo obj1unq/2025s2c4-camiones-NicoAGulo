@@ -57,8 +57,42 @@ describe "Camion con Bumblebee y Knight Rider se le descarga Bumblebee" {
 
     assert.equals(1, camion.cosas().size())
 
+    assert.throwsException({ camion.cargar(knightRider) })
+    assert.throwsException({ camion.descargar(bumblebee) })
+  }
+}
+
+describe "El peso de cada uno de los objetos cargados es un numero par" {
+  test "Un objeto de peso par en la carga hace que el metodo esPesoPar() devuelva True" {
+    camion.cargar(bumblebee)
+
+    assert.that(camion.cosas().contains(bumblebee))
+
+    assert.that(camion.esPesoPar())
+  }
+  test "Un objeto de peso impar en la carga hace que el metodo esPesoPar() devuelva False" {
+    knightRider.peso(3)
     
+    camion.cargar(knightRider)
+
+    assert.that(camion.cosas().contains(knightRider))
+
+    assert.that(not camion.esPesoPar())
   }
 
+  test "Varios objetos que son pares en la carga hace que el metodo esPesoPar() devuelva True"{
+    camion.cargar(bumblebee)
+    camion.cargar(knightRider)
 
+    assert.that(camion.esPesoPar())
+  }
+  test "Varios objetos pares e impares en la carga hace que el metodo esPesoPar() devuelva False"{
+    camion.cargar(bumblebee)
+
+    knightRider.peso(3)
+
+    camion.cargar(knightRider)
+
+    assert.notThat(camion.esPesoPar())
+  }
 }
