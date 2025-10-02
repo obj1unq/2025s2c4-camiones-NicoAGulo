@@ -55,28 +55,28 @@ No se puede cargar algo ya cargado ni descargar lo que no contiene el camión. -
 
 ### Peso y exceso de peso
 
-Saber el peso total del camión, que es la suma del peso del camión vacío (tara) y su carga. La tara del camión es de 1000 kilos.
+<!-- Saber el peso total del camión, que es la suma del peso del camión vacío (tara) y su carga. La tara del camión es de 1000 kilos.
 
-El camión se encuentra excedido de peso si el peso total es superior al peso máximo aceptable, que es de 2500 kilos.
+El camión se encuentra excedido de peso si el peso total es superior al peso máximo aceptable, que es de 2500 kilos. -->
 
 ### Ejemplo
 
-Si el camión tiene a Bumblebee y un paquete de 300 ladrillos, entonces el peso total es 2400 y no está excedido de peso. Pero si el paquete de ladrillos contiene 400 ladrillos, entonces el peso total es 2600 y sí está excedido.
+<!-- Si el camión tiene a Bumblebee y un paquete de 300 ladrillos, entonces el peso total es 2400 y no está excedido de peso. Pero si el paquete de ladrillos contiene 400 ladrillos, entonces el peso total es 2600 y sí está excedido. -->
 
 ### El de nivel
 
-Encontrar una cosa cargada cuyo nivel de peligrosidad coincida exactamente con el valor indicado.
+<!-- Encontrar una cosa cargada cuyo nivel de peligrosidad coincida exactamente con el valor indicado. -->
 
 #### Ejemplo
 
-Para un camión cargado con Bumblebee en modo auto, la batería antiaérea descargada y los residuos radiactivos: 
+<!-- Para un camión cargado con Bumblebee en modo auto, la batería antiaérea descargada y los residuos radiactivos: 
 
 - Si se pide algo de nivel 0 debe encontrar a la batería antiaérea.
 - Si se pide algo de nivel 15 debe encontrar a Bumblebee.
 - Si se pide algo de nivel 200 debe encontrar a los residuos.
 - Si se pide algo de nivel 30 debe romper, porque no se encuentra nada.
 - Si se cambia a Bumblebee a modo robot y se vuelve a pedir algo de 30, entonces encuentra a Bumblebee.
-- Si se carga la batería con misiles y se pide algo de peligrosidad 100 entonces encuentra a la batería.
+- Si se carga la batería con misiles y se pide algo de peligrosidad 100 entonces encuentra a la batería. -->
 
 
 ### Cosas peligrosas

@@ -34,10 +34,12 @@ object paqueteLadrillos{
 	var property cantidadLadrillos=1
 
 	method peso(){return cantidadLadrillos*2}
+
+	method nivelPeligrosidad()=2
 }
 
 object bateriaAntiaerea{
-	var property estaConMisiles = null
+	var property estaConMisiles = false
 
 	method peso(){
 		if (estaConMisiles){
@@ -54,6 +56,10 @@ object bateriaAntiaerea{
 			return 0
 		}
 	}
+
+	method recargarMisiles(){
+		estaConMisiles=true
+	}
 }
 
 const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 500)
@@ -61,4 +67,6 @@ const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 500)
 const arenaAGranel = new Cosa(nivelPeligrosidad = 1)
 
 const residuosRadioactivos = new Cosa(nivelPeligrosidad=200)
+
+const misiles = new Cosa ()
 

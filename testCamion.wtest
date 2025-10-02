@@ -97,28 +97,28 @@ describe "El peso de cada uno de los objetos cargados es un numero par" {
   }
 }
 
-describe "El metodo tienePesoDeterminado(kg) funciona correctamente" {
-  test "tienePesoDeterminado(kg) devuelve la carga que tenga 2kg de peso (paqueteLadrillos) " {
+describe "El metodo tieneCargaConPesoDeterminado(kg) funciona correctamente" {
+  test "tieneCargaConPesoDeterminado(kg) devuelve la carga que tenga 2kg de peso (paqueteLadrillos) " {
     camion.cargar(paqueteLadrillos)
     camion.cargar(bumblebee)
     camion.cargar(knightRider)
 
-    assert.that(camion.tienePesoDeterminado(2))
+    assert.that(camion.tieneCargaConPesoDeterminado(2))
   }
-  test "tienePesoDeterminado(kg) devuelve la carga que tenga 800kg de peso (bumblebee) " {
+  test "tieneCargaConPesoDeterminado(kg) devuelve la carga que tenga 800kg de peso (bumblebee) " {
     camion.cargar(paqueteLadrillos)
     camion.cargar(bumblebee)
     camion.cargar(knightRider)
 
-    assert.that(camion.tienePesoDeterminado(800))
+    assert.that(camion.tieneCargaConPesoDeterminado(800))
   }
 
-  test "tienePesoDeterminado(kg) no devuelve nada porque se le pasa como argumento un peso que nadie tiene (13) " {
+  test "tieneCargaConPesoDeterminado(kg) no devuelve nada porque se le pasa como argumento un peso que nadie tiene (13) " {
     camion.cargar(paqueteLadrillos)
     camion.cargar(bumblebee)
     camion.cargar(knightRider)
 
-    assert.throwsException(camion.tienePesoDeterminado(13))
+    assert.throwsException(camion.tieneCargaConPesoDeterminado(13))
   }
 }
 
@@ -144,5 +144,33 @@ describe "El metodo esExcesoDePeso() funciona correctamente"{
     camion.cargar(knightRider)
 
     assert.that(camion.esExcesoDePeso())
+  }
+}
+
+describe "El metodo cargaConNivelDePeligrosidadDeterminado(lvl) funciona correctamente" {
+  method initialize() {
+    camion.cargar(bateriaAntiaerea)
+    camion.cargar(bumblebee)
+    camion.cargar(residuosRadioactivos)
+  }
+  test "cargaConNivelDePeligrosidadDeterminado(0) devuelve la bateria antiaerea" {
+    assert.equals(bateriaAntiaerea, camion.cargaConNivelDePeligrosidadDeterminado(0))
+  }
+  test "cargaConNivelDePeligrosidadDeterminado(15) devuelve a bumblebee" {
+    assert.equals(bumblebee, camion.cargaConNivelDePeligrosidadDeterminado(15))
+  }
+  test "cargaConNivelDePeligrosidadDeterminado(200) devuelve a los residuos radioactivos" {
+    assert.equals(residuosRadioactivos, camion.cargaConNivelDePeligrosidadDeterminado(200))
+  }
+  test "cargaConNivelDePeligrosidadDeterminado(30) debe romper, porque no se encuentra nada" {
+    assert.throwsException({ camion.cargaConNivelDePeligrosidadDeterminado(30) })
+  }
+  test "Si se cambia a Bumblebee a modo robot y se vuelve a pedir algo de 30, entonces encuentra a Bumblebee" {
+    bumblebee.transformar()
+    assert.equals(bumblebee, camion.cargaConNivelDePeligrosidadDeterminado(30))
+  }
+  test "Si se carga la batería con misiles y se pide algo de peligrosidad 100 entonces encuentra a la batería" {
+    bateriaAntiaerea.recargarMisiles()
+    assert.equals(bateriaAntiaerea, camion.cargaConNivelDePeligrosidadDeterminado(100))
   }
 }

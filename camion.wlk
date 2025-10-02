@@ -22,7 +22,7 @@ object camion {
 		return self.cosas().all {n => (n.peso()%2 ==0)}
 	}
 
-	method tienePesoDeterminado(kg){
+	method tieneCargaConPesoDeterminado(kg){
 		return self.cosas().any{cosa => cosa.peso() == kg}
 	}
 
@@ -34,4 +34,7 @@ object camion {
 		return self.pesoTotal()>2500
 	}
 
+	method cargaConNivelDePeligrosidadDeterminado(lvl){
+		return self.cosas().find{cosa => cosa.nivelPeligrosidad() == lvl}
+	}
 }
