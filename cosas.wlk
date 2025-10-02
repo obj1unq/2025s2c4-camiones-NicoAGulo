@@ -70,3 +70,22 @@ const residuosRadioactivos = new Cosa(nivelPeligrosidad=200)
 
 const misiles = new Cosa ()
 
+//MAS COSAS
+
+object contenedorPortuario{
+	const property cosas = #{}
+
+	method peso() = 100 + self.pesoContenido()
+
+	method pesoContenido(){
+		return self.cosas().sum({ cosa => cosa.peso() })
+	}
+
+	method nivelDePeligrosidad(){
+		if (self.cosas().isEmpty()){
+			return 0
+		}else{
+			return self.cosas().max({elemento => elemento.nivelPeligrosidad()}).nivelPeligrosidad()
+		}
+	}
+}

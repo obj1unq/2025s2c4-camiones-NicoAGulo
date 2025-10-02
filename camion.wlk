@@ -48,5 +48,5 @@ object camion {
 		return (not self.esExcesoDePeso()) and (self.cargasConNivelDePeligrosidadMayorA(maxNivelPeligrosidad).isEmpty())
 	}
 
-
+	
 }

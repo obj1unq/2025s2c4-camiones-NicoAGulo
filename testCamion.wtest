@@ -275,3 +275,20 @@ describe "El metodo puedeCircularEnRuta(maxNivelPeligrosidad) funciona correctam
   }
 }
 
+describe "Contenedor portuario" {
+  test "El contenedor portuario vacío pesa 100 y su peligrosidad es 0" {
+    assert.equals(100, contenedorPortuario.peso())
+    assert.equals(0, contenedorPortuario.nivelDePeligrosidad())
+  }
+
+  test "El contenedor portuario que tiene a Knight Rider y 50 kg de arena a granel pesa 650 y su peligrosidad es 10" {
+    contenedorPortuario.cosas().add(knightRider)
+    arenaAGranel.peso(50)
+    contenedorPortuario.cosas().add(arenaAGranel)
+
+    assert.equals(650, contenedorPortuario.peso())
+    assert.equals(10, contenedorPortuario.nivelDePeligrosidad())
+
+    
+  }
+}
