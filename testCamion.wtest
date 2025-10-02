@@ -174,3 +174,9 @@ describe "El metodo cargaConNivelDePeligrosidadDeterminado(lvl) funciona correct
     assert.equals(bateriaAntiaerea, camion.cargaConNivelDePeligrosidadDeterminado(100))
   }
 }
+
+describe "name" {
+  test "description" {
+    
+  }
+}

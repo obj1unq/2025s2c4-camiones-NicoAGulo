@@ -37,4 +37,14 @@ object camion {
 	method cargaConNivelDePeligrosidadDeterminado(lvl){
 		return self.cosas().find{cosa => cosa.nivelPeligrosidad() == lvl}
 	}
+
+	method cargasConNivelDePeligrosidadMayorA(lvl){
+		return self.cosas().map{cosa => cosa.nivelPeligrosidad()>lvl}
+	}
+
+	method cargasMasPeligrosasQue(cosaPeligrosa){
+		return self.cargasConNivelDePeligrosidadMayorA(cosaPeligrosa.nivelPeligrosidad())
+	}
+
+	
 }
