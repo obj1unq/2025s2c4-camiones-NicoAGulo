@@ -119,13 +119,13 @@ Agregar las siguientes cosas para ser transportadas por el camión:
 
 ### Tiene algo que pesa entre dos valores
 
-Saber si el camión tiene algo que pesa entre dos valores (mínimo y máximo).
+<!-- Saber si el camión tiene algo que pesa entre dos valores (mínimo y máximo). -->
 
 #### Ejemplo
-Para un camión cargado con Bumblebee y un paquete de 300 ladrillos:
+<!-- Para un camión cargado con Bumblebee y un paquete de 300 ladrillos:
 - Tiene algo que pesa entre 5 y 700.
 - Tiene algo que pesa entre 5 y 1000.
-- No tiene algo que pese entre 900 y 1000.
+- No tiene algo que pese entre 900 y 1000. -->
 
 ### Cosa más pesada
 La cosa más pesada que tenga el camión. Ojo que lo que se pide es _la cosa_ y no su peso.

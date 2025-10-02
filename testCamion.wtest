@@ -292,7 +292,7 @@ describe "Contenedor portuario" {
 }
 
 describe "Embalaje de seguridad" {
-    test "Si el embalaje de seguridad envuelve a Knight Rider, su peso es 500 y su peligrosidad es 5." {
+  test "Si el embalaje de seguridad envuelve a Knight Rider, su peso es 500 y su peligrosidad es 5." {
     embalajeDeSeguridad.embalarCosa(knightRider)
     
     assert.equals(500, embalajeDeSeguridad.peso())
@@ -304,5 +304,22 @@ describe "Embalaje de seguridad" {
     
     assert.equals(800, embalajeDeSeguridad.peso())
     assert.equals(7.5, embalajeDeSeguridad.nivelDePeligrosidad())
+  }
+}
+
+describe "Saber si el camión tiene algo que pesa entre dos valores (mínimo y máximo). Para un camión cargado con Bumblebee y un paquete de 300 ladrillos:" {
+  method initialize() {
+    camion.cargar(bumblebee)
+    paqueteLadrillos.cantidadLadrillos(300)
+    camion.cargar(paqueteLadrillos)
+  }
+  test "Tiene algo que pesa entre 5 y 700." {
+    assert.that(camion.cargaEntreMinimoYMaximoDelPeso(5,700))
+  }
+  test "Tiene algo que pesa entre 5 y 1000." {
+    assert.that(camion.cargaEntreMinimoYMaximoDelPeso(5,1000))
+  }
+  test "No tiene algo que pese entre 900 y 1000." {
+    assert.notThat(camion.cargaEntreMinimoYMaximoDelPeso(900,1000))
   }
 }

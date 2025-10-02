@@ -8,7 +8,6 @@ object camion {
 		if (not cosas.contains(unaCosa)) {
 			cosas.add(unaCosa)
 		} else {
-			// self.error(("Ya existe en el equipaje"))
 			throw new Exception(message = "No se puede cargar algo que ya esta cargado")
 		}
 	}
@@ -44,9 +43,14 @@ object camion {
 	// 	return (not self.esExcesoDePeso()) and 
 	// 	(self.cargasConNivelDePeligrosidadMayorA(maxNivelPeligrosidad))
 	// }
-	method puedeCircularEnRuta(maxNivelPeligrosidad){
-		return (not self.esExcesoDePeso()) and (self.cargasConNivelDePeligrosidadMayorA(maxNivelPeligrosidad).isEmpty())
-	}
-
+	method puedeCircularEnRuta(
+		maxNivelPeligrosidad
+	) = (not self.esExcesoDePeso()) and self.cargasConNivelDePeligrosidadMayorA(
+		maxNivelPeligrosidad
+	).isEmpty()
 	
+	method cargaEntreMinimoYMaximoDelPeso(min, max) = self.cosas().any(
+		{ elementoCargado =>
+			(elementoCargado.peso() > min) and (elementoCargado.peso() < max) }
+	)
 }
