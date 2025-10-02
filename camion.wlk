@@ -20,4 +20,8 @@ object camion {
 	method esPesoPar(){
 		return self.cosas().all {n => (n.peso()%2 ==0)}
 	}
+
+	method tienePesoDeterminado(kg){
+		return self.cosas().any{cosa => cosa.peso() == kg}
+	}
 }

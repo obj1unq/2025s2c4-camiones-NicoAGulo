@@ -96,3 +96,29 @@ describe "El peso de cada uno de los objetos cargados es un numero par" {
     assert.notThat(camion.esPesoPar())
   }
 }
+
+describe "El metodo tienePesoDeterminado(kg) funciona correctamente" {
+  test "tienePesoDeterminado(kg) devuelve la carga que tenga 2kg de peso (paqueteLadrillos) " {
+    camion.cargar(paqueteLadrillos)
+    camion.cargar(bumblebee)
+    camion.cargar(knightRider)
+
+    assert.that(camion.tienePesoDeterminado(2))
+  }
+  test "tienePesoDeterminado(kg) devuelve la carga que tenga 800kg de peso (bumblebee) " {
+    camion.cargar(paqueteLadrillos)
+    camion.cargar(bumblebee)
+    camion.cargar(knightRider)
+
+    assert.that(camion.tienePesoDeterminado(800))
+  }
+
+  test "tienePesoDeterminado(kg) no devuelve nada porque se le pasa como argumento un peso que nadie tiene (13) " {
+    camion.cargar(paqueteLadrillos)
+    camion.cargar(bumblebee)
+    camion.cargar(knightRider)
+
+    assert.throwsException(camion.tienePesoDeterminado(13))
+  }
+}
+

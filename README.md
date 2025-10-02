@@ -41,17 +41,17 @@ No se puede cargar algo ya cargado ni descargar lo que no contiene el camión. -
 <!-- Saber si el peso de cada uno de los objetos cargados es un número par. -->
 
 ### Ejemplo
-- Para un camión cargado con Bumblebee y 50 kg de arena a granel todo peso es par.
-- En cambio, si la arena a granel pesa 51 kg entonces no.
+<!-- - Para un camión cargado con Bumblebee y 50 kg de arena a granel todo peso es par.
+- En cambio, si la arena a granel pesa 51 kg entonces no. -->
 
 ### Hay alguno que pesa 
-Saber si el camión tiene alguna cosa que pesa exactamente una cantidad de kilogramos dada.
+<!-- Saber si el camión tiene alguna cosa que pesa exactamente una cantidad de kilogramos dada. -->
 
 #### Ejemplo
-Para un camión cargado con Bumblebee y 50 kg de arena a granel:
+<!-- Para un camión cargado con Bumblebee y 50 kg de arena a granel:
 - Si se pregunta si hay algo que pesa 50 debe contestar que sí (es verdadero, por la arena).
 - Si se pregunta si hay algo que pesa 800 debe contestar que sí (es verdadero, por Bumblebee).
-- Si se pregunta si hay algo que pesa 500 debe contestar que no (es falso, ninguno pesa eso).
+- Si se pregunta si hay algo que pesa 500 debe contestar que no (es falso, ninguno pesa eso). -->
 
 ### Peso y exceso de peso
 
