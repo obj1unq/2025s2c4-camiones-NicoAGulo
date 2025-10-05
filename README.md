@@ -6,8 +6,8 @@ Una empresa de transporte quiere administrar mejor las cargas que lleva un cami�
 Para eso requiere un sistema que le permita planificar qué cosas debe llevar el camión sin sobrepasar su capacidad a un destino capaz de recibir la carga. Por otro lado, las cosas que transporta tienen un nivel de peligrosidad. Este nivel es usado para impedir que cosas que superen cierto nivel de peligrosidad circulen en determinadas rutas.
 
 ## Las cosas
-De las cosas que puede transportar el camión nos interesa el peso y la peligrosidad:
-Éstas son algunas de las cosas:
+<!-- De las cosas que puede transportar el camión nos interesa el peso y la peligrosidad:
+Éstas son algunas de las cosas: -->
 
 <!-- * Knight Rider: pesa 500 kilos y su nivel de peligrosidad es 10. -->
 <!-- * Arena a granel: el peso es variable, la peligrosidad es 1. -->
@@ -106,10 +106,10 @@ Tip: buscá reutilizar el código. -->
 - Tampoco puede circular en una ruta de nivel 20 si tiene un paquete de 300 ladrillos y Bumblebee está en modo robot. -->
 
 ### Más cosas:
-Agregar las siguientes cosas para ser transportadas por el camión:
+<!-- Agregar las siguientes cosas para ser transportadas por el camión: -->
 
 <!-- * Contenedor portuario: un contenedor puede tener otras cosas adentro. El peso es 100 + la suma de todas las cosas que estén adentro. Es tan peligroso como el objeto más peligroso que contiene. Si está vacío, su peligrosidad es 0. -->
-* Embalaje de seguridad: es una cobertura que envuelve a cualquier otra cosa. El peso es el peso de la cosa que tenga adentro. El nivel de peligrosidad es la mitad del nivel de peligrosidad de lo que envuelve.
+<!-- * Embalaje de seguridad: es una cobertura que envuelve a cualquier otra cosa. El peso es el peso de la cosa que tenga adentro. El nivel de peligrosidad es la mitad del nivel de peligrosidad de lo que envuelve. -->
 
 ### Ejemplos
 <!-- - El contenedor portuario vacío pesa 100 y su peligrosidad es 0.
@@ -128,47 +128,47 @@ Agregar las siguientes cosas para ser transportadas por el camión:
 - No tiene algo que pese entre 900 y 1000. -->
 
 ### Cosa más pesada
-La cosa más pesada que tenga el camión. Ojo que lo que se pide es _la cosa_ y no su peso.
+<!-- La cosa más pesada que tenga el camión. Ojo que lo que se pide es _la cosa_ y no su peso. -->
 
 #### Ejemplo
-- Para un camión cargado con Bumblebee y un paquete de 300 ladrillos, la cosa más pesada es Bumblebee.
-- Para un camión vacío, no se puede calcular la cosa más pesada.
+<!-- - Para un camión cargado con Bumblebee y un paquete de 300 ladrillos, la cosa más pesada es Bumblebee.
+- Para un camión vacío, no se puede calcular la cosa más pesada. -->
 
 ### Pesos
-Saber todos los pesos de las cosas que tiene el camión.
+<!-- Saber todos los pesos de las cosas que tiene el camión. -->
 
 #### Ejemplo
-- Para un camión cargado con Bumblebee y un paquete de 300 ladrillos, los pesos son 800 y 600.  
-  Nota: ojo al armar el test, porque para Wollok [800,600] es distinto a [600,800]. A nivel de negocio da igual.
+<!-- - Para un camión cargado con Bumblebee y un paquete de 300 ladrillos, los pesos son 800 y 600.  
+  Nota: ojo al armar el test, porque para Wollok [800,600] es distinto a [600,800]. A nivel de negocio da igual. -->
 
 ### TotalBultos
-Cada cosa se puede transportar en uno o más bultos, dependiendo de la cosa en sí:
+<!-- Cada cosa se puede transportar en uno o más bultos, dependiendo de la cosa en sí: -->
 
-- Knight Rider, arena a granel y residuos radiactivos usan 1 bulto cada uno.
-- Bumblebee y embalaje de seguridad usan 2 bultos cada uno.
-- Paquete de ladrillos usa 1 bulto hasta 100 ladrillos, 2 bultos si son de 101 a 300 ladrillos, 3 bultos si son 301 o más ladrillos.
-- Batería antiaérea: usa 1 bulto si no tiene misiles, 2 si tiene.
-- Contenedor portuario: usa 1 bulto más de la cantidad de bultos que usan las cosas que tiene adentro.
+<!-- - Knight Rider, arena a granel y residuos radiactivos usan 1 bulto cada uno. -->
+<!-- - Bumblebee y embalaje de seguridad usan 2 bultos cada uno. -->
+<!-- - Paquete de ladrillos usa 1 bulto hasta 100 ladrillos, 2 bultos si son de 101 a 300 ladrillos, 3 bultos si son 301 o más ladrillos. -->
+<!-- - Batería antiaérea: usa 1 bulto si no tiene misiles, 2 si tiene. -->
+<!-- - Contenedor portuario: usa 1 bulto más de la cantidad de bultos que usan las cosas que tiene adentro. -->
 
-Se pide saber la cantidad total de bultos que está transportando el camión.
+<!-- Se pide saber la cantidad total de bultos que está transportando el camión. -->
 
 #### Ejemplos
 
 ##### Caso 1
-Suponiendo que el camión tiene:
-- El contenedor portuario con Knight Rider y Bumblebee.
-- El embalaje de seguridad envolviendo los residuos radiactivos.
-- Arena a granel.
-- Un paquete de 50 ladrillos.
-- La batería antiaérea descargada.  
-Entonces la cantidad de bultos es: 9.
+<!-- Suponiendo que el camión tiene:
+- El contenedor portuario con Knight Rider y Bumblebee.           4
+- El embalaje de seguridad envolviendo los residuos radiactivos.  2
+- Arena a granel.                                                 1
+- Un paquete de 50 ladrillos.                                     1
+- La batería antiaérea descargada.                                1
+Entonces la cantidad de bultos es: 9. -->
 
 ##### Caso 2
-Si el camión tiene:
+<!-- Si el camión tiene:
 - Un paquete de 150 ladrillos.
 - La batería antiaérea cargada.
 - Un contenedor portuario vacío.  
-Entonces la cantidad de bultos es 5.
+Entonces la cantidad de bultos es 5. -->
 
 ##### Caso 3
 Si el camión tiene:

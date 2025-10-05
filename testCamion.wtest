@@ -1,3 +1,4 @@
+import wollok.mirror.*
 import cosas.*
 import camion.*
 
@@ -307,7 +308,7 @@ describe "Embalaje de seguridad" {
   }
 }
 
-describe "Saber si el camión tiene algo que pesa entre dos valores (mínimo y máximo). Para un camión cargado con Bumblebee y un paquete de 300 ladrillos:" {
+describe "El camión tiene algo que pesa entre dos valores (mínimo y máximo). Para un camión cargado con Bumblebee y un paquete de 300 ladrillos:" {
   method initialize() {
     camion.cargar(bumblebee)
     paqueteLadrillos.cantidadLadrillos(300)
@@ -323,3 +324,74 @@ describe "Saber si el camión tiene algo que pesa entre dos valores (mínimo y m
     assert.notThat(camion.cargaEntreMinimoYMaximoDelPeso(900,1000))
   }
 }
+
+describe "La cosa más pesada que tenga el camión" {
+  test "Para un camión cargado con Bumblebee y un paquete de 300 ladrillos, la cosa más pesada es Bumblebee." {
+    camion.cargar(bumblebee)
+    paqueteLadrillos.cantidadLadrillos(300)
+    camion.cargar(paqueteLadrillos)
+
+    assert.equals(bumblebee, camion.cargaMasPesada())
+  }
+
+  test "Para un camión vacío, no se puede calcular la cosa más pesada" {
+    assert.throwsException({ camion.cargaMasPesada()})
+  }
+}
+
+describe "Todos los pesos de las cosas que tiene el camión" {
+  test "Para un camión cargado con Bumblebee y un paquete de 300 ladrillos, los pesos son 800 y 600" {
+    camion.cargar(bumblebee)
+    paqueteLadrillos.cantidadLadrillos(300)
+    camion.cargar(paqueteLadrillos)
+
+    assert.equals([800,600], camion.pesoDeCadaCarga())
+    assert.notEquals([600,800], camion.pesoDeCadaCarga())
+  }
+}
+
+describe "Cantidad total de bultos que está transportando el camión" {
+  test "Caso 1 : Son 9 bultos en total" {
+
+    //contenedor portuario
+    contenedorPortuario.cosas().add(bumblebee) //2
+    contenedorPortuario.cosas().add(knightRider) //1
+    camion.cargar(contenedorPortuario) //1
+
+    //embalaje de seguridad envolviendo residuos radioactivos
+    embalajeDeSeguridad.embalarCosa(residuosRadioactivos)
+    camion.cargar(embalajeDeSeguridad) //2
+
+    camion.cargar(arenaAGranel)//1
+
+    paqueteLadrillos.cantidadLadrillos(50)
+    camion.cargar(paqueteLadrillos)//1
+
+    camion.cargar(bateriaAntiaerea)//1
+
+    assert.equals(9, camion.totalBultos()) //9
+  }
+  test "Caso 2 : Son 5 bultos en total" {
+
+    //embalaje de seguridad envolviendo residuos radioactivos
+    paqueteLadrillos.cantidadLadrillos(150)
+    camion.cargar(paqueteLadrillos)//2
+
+    bateriaAntiaerea.recargarMisiles()
+    camion.cargar(bateriaAntiaerea)//2
+
+    camion.cargar(contenedorPortuario) //1
+
+    assert.equals(5, camion.totalBultos()) //5
+  }
+  test "Caso 3 : Son 4 bultos en total" {
+
+    //embalaje de seguridad envolviendo residuos radioactivos
+    paqueteLadrillos.cantidadLadrillos(350)
+    camion.cargar(paqueteLadrillos)//3
+    camion.cargar(arenaAGranel)//1
+
+    assert.equals(4, camion.totalBultos()) //4
+  }
+}
+

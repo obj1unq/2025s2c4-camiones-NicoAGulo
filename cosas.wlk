@@ -1,12 +1,16 @@
 class Cosa {
 	var property peso = 0
 	var property nivelPeligrosidad = 0
+	var property bultos = 1 
 }
 
 object bumblebee {
 	const property peso = 800
 	var modoTransformacion = "auto"
+	const property bultos = 2 
 	
+
+	//Estrategia funciona pero con malas practicas. Manejo con strings esta bien? 
 	method nivelPeligrosidad() {
 		if (modoTransformacion == "auto") {
 			return 15
@@ -36,6 +40,16 @@ object paqueteLadrillos {
 	method peso() = cantidadLadrillos * 2
 	
 	method nivelPeligrosidad() = 2
+
+	method bultos(){
+		if(cantidadLadrillos<=100){
+			return 1
+		} else if (cantidadLadrillos>=101 and cantidadLadrillos<=300){
+			return 2
+		} else {
+			return 3
+		}
+	}
 }
 
 object bateriaAntiaerea {
@@ -60,6 +74,14 @@ object bateriaAntiaerea {
 	method recargarMisiles() {
 		estaConMisiles = true
 	}
+
+	method bultos(){
+		if (estaConMisiles){
+			return 2
+		}else{
+			return 1
+		}
+	}
 }
 
 const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 10)
@@ -68,7 +90,7 @@ const arenaAGranel = new Cosa(nivelPeligrosidad = 1)
 
 const residuosRadioactivos = new Cosa(nivelPeligrosidad = 200)
 
-const misiles = new Cosa()
+const misiles = new Cosa(bultos = 0)
 
 //MAS COSAS
 object contenedorPortuario {
@@ -87,12 +109,21 @@ object contenedorPortuario {
 			).nivelPeligrosidad()
 		}
 	}
+
+	method bultos(){
+		if(not cosas.isEmpty()){
+			return 1+self.cosas().sum{cosa => cosa.bultos()}
+		}else{
+			return 1
+		}
+	}
 }
 
 object embalajeDeSeguridad {
 	var property cosaEnvuelta = null
+	const property bultos= 2
 	
-	method peso() = cosaEnvuelta.peso() 
+	method peso() = cosaEnvuelta.peso()
 	
 	method nivelDePeligrosidad() = cosaEnvuelta.nivelPeligrosidad()/2
 

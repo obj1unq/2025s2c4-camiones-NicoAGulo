@@ -39,10 +39,6 @@ object camion {
 		cosaPeligrosa
 	) = self.cargasConNivelDePeligrosidadMayorA(cosaPeligrosa.nivelPeligrosidad())
 	
-	// method puedeCircularEnRuta2(maxNivelPeligrosidad){
-	// 	return (not self.esExcesoDePeso()) and 
-	// 	(self.cargasConNivelDePeligrosidadMayorA(maxNivelPeligrosidad))
-	// }
 	method puedeCircularEnRuta(
 		maxNivelPeligrosidad
 	) = (not self.esExcesoDePeso()) and self.cargasConNivelDePeligrosidadMayorA(
@@ -53,4 +49,25 @@ object camion {
 		{ elementoCargado =>
 			(elementoCargado.peso() > min) and (elementoCargado.peso() < max) }
 	)
+	
+	method cargaMasPesada() {
+		if (not self.cosas().isEmpty()){
+			return self.cosas().max{cosa => cosa.peso()}
+		}else{
+			throw new Exception(message="No hay carga por lo tanto no existe ninguna carga pesada")
+		}
+	}
+
+	method pesoDeCadaCarga(){
+		if (not self.cosas().isEmpty()){
+			return self.cosas().map{cosa => cosa.peso()}
+		}else{
+			throw new Exception(message="No hay carga por lo tanto no existe ninguna carga pesada")
+		}
+	}
+
+	method totalBultos(){
+		return cosas.sum{cosa => cosa.bultos()}
+	}
+
 }
