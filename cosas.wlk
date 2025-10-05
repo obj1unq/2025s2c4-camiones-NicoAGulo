@@ -32,6 +32,10 @@ object bumblebee {
 	}
 	
 	method modoTransformacion() = modoTransformacion
+
+	method efectoDeAccidente(){
+		self.transformar()
+	}
 }
 
 object paqueteLadrillos {
@@ -48,6 +52,14 @@ object paqueteLadrillos {
 			return 2
 		} else {
 			return 3
+		}
+	}
+
+	method efectoDeAccidente(){
+		if (cantidadLadrillos>=12){
+			cantidadLadrillos-=12
+		}else{
+			cantidadLadrillos=0
 		}
 	}
 }
@@ -86,7 +98,15 @@ object bateriaAntiaerea {
 
 const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 10)
 
-const arenaAGranel = new Cosa(nivelPeligrosidad = 1)
+object arenaAGranel{
+	var property peso = 0
+	var property nivelPeligrosidad = 1
+	var property bultos = 1
+
+	method efectoDeAccidente(){
+		peso+=20
+	}
+}
 
 const residuosRadioactivos = new Cosa(nivelPeligrosidad = 200)
 

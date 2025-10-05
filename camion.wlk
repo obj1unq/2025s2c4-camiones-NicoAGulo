@@ -70,4 +70,7 @@ object camion {
 		return cosas.sum{cosa => cosa.bultos()}
 	}
 
+	method sufrirAccidente(){
+		self.cosas().forEach{cosa => cosa.efectoDeAccidente()}
+	}
 }

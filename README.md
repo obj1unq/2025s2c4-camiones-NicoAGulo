@@ -171,10 +171,10 @@ Entonces la cantidad de bultos es: 9. -->
 Entonces la cantidad de bultos es 5. -->
 
 ##### Caso 3
-Si el camión tiene:
+<!-- Si el camión tiene:
 - Un paquete de 350 ladrillos.
 - Arena a granel.  
-Entonces la cantidad de bultos es 4.
+Entonces la cantidad de bultos es 4. -->
 
 ### Accidente
 
@@ -182,9 +182,9 @@ Si el camión sufre un accidente, las cosas que está transportando sufren algú
 
 Éstos son los efectos para cada cosa al accidentarse el camión:
 
-- Knight Rider: no hace nada.
-- Bumblebee: cambia de modo (si estaba en robot pasa a auto y viceversa).
-- Paquete de ladrillos: pierde hasta 12 ladrillos. Si tenía menos de 12 queda en 0.
+<!-- - Knight Rider: no hace nada. -->
+<!-- - Bumblebee: cambia de modo (si estaba en robot pasa a auto y viceversa). -->
+<!-- - Paquete de ladrillos: pierde hasta 12 ladrillos. Si tenía menos de 12 queda en 0. -->
 - Arena a granel: agrega 20 kilos.
 - Batería antiaérea: descarga los misiles.
 - Contenedor portuario: hace que reaccione cada una de las cosas que tiene adentro (por ejemplo, si llevaba a Bumblebee, éste queda en modo robot).
