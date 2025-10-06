@@ -1,5 +1,3 @@
-// import cosas.*
-
 object camion {
 	var property cosas = #{}
 	const pesoDeTara = 1000
