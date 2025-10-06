@@ -395,3 +395,60 @@ describe "Cantidad total de bultos que está transportando el camión" {
   }
 }
 
+describe "Camión sufre un accidente, aplicando los efectos a las cosas cargadas." {
+
+
+  test "CASO 1" {
+    
+    contenedorPortuario.cosas().add(bumblebee)
+    contenedorPortuario.cosas().add(knightRider)
+    camion.cargar(contenedorPortuario)
+
+    residuosRadioactivos.efectoDeAccidente()
+    residuosRadioactivos.efectoDeAccidente()
+    embalajeDeSeguridad.embalarCosa(residuosRadioactivos)
+    camion.cargar(embalajeDeSeguridad)
+
+    arenaAGranel.peso(50)
+    camion.cargar(arenaAGranel)
+    
+    paqueteLadrillos.cantidadLadrillos(100)
+    camion.cargar(paqueteLadrillos)
+
+    bateriaAntiaerea.recargarMisiles()
+    camion.cargar(bateriaAntiaerea)
+
+    //LUEGO DE ACCIDENTE
+    camion.sufrirAccidente()
+    assert.equals("robot", bumblebee.modoTransformacion())
+    
+    assert.equals(30, residuosRadioactivos.peso())
+    assert.equals(70, arenaAGranel.peso())
+    assert.equals(88, paqueteLadrillos.cantidadLadrillos())
+    assert.notThat(bateriaAntiaerea.estaConMisiles())
+  }
+
+  test "CASO 2" {
+    bumblebee.transformar()
+    camion.cargar(bumblebee)
+
+    residuosRadioactivos.efectoDeAccidente()
+    residuosRadioactivos.efectoDeAccidente()
+    camion.cargar(residuosRadioactivos)
+
+    paqueteLadrillos.cantidadLadrillos(10)
+    camion.cargar(paqueteLadrillos)
+
+    camion.cargar(bateriaAntiaerea)
+
+    camion.sufrirAccidente()
+
+    assert.equals("auto", bumblebee.modoTransformacion())
+    assert.equals(45,residuosRadioactivos.peso())
+    assert.equals(0,paqueteLadrillos.peso())
+    assert.notThat(bateriaAntiaerea.estaConMisiles())
+
+  }
+}
+
+

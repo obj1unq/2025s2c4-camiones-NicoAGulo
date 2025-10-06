@@ -94,9 +94,20 @@ object bateriaAntiaerea {
 			return 1
 		}
 	}
+
+	method efectoDeAccidente(){
+		estaConMisiles = false
+	}
 }
 
-const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 10)
+// const knightRider = new Cosa(peso = 500, nivelPeligrosidad = 10)
+object knightRider{
+	var property peso = 500
+	var property nivelPeligrosidad = 10
+	var property bultos = 1 
+
+	method efectoDeAccidente(){}
+}
 
 object arenaAGranel{
 	var property peso = 0
@@ -108,7 +119,16 @@ object arenaAGranel{
 	}
 }
 
-const residuosRadioactivos = new Cosa(nivelPeligrosidad = 200)
+// const residuosRadioactivos = new Cosa(nivelPeligrosidad = 200)
+object residuosRadioactivos{
+	var property peso = 0
+	var property nivelPeligrosidad = 200
+	var property bultos = 1 
+
+	method efectoDeAccidente(){
+		peso+=15
+	}
+}
 
 const misiles = new Cosa(bultos = 0)
 
@@ -137,6 +157,10 @@ object contenedorPortuario {
 			return 1
 		}
 	}
+
+	method efectoDeAccidente(){
+		self.cosas().forEach{cosa => cosa.efectoDeAccidente()}
+	}
 }
 
 object embalajeDeSeguridad {
@@ -150,4 +174,6 @@ object embalajeDeSeguridad {
 	method embalarCosa(cosa){
 		cosaEnvuelta=cosa
 	}
+
+	method efectoDeAccidente(){}
 }

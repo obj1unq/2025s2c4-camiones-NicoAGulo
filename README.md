@@ -185,11 +185,11 @@ Si el camión sufre un accidente, las cosas que está transportando sufren algú
 <!-- - Knight Rider: no hace nada. -->
 <!-- - Bumblebee: cambia de modo (si estaba en robot pasa a auto y viceversa). -->
 <!-- - Paquete de ladrillos: pierde hasta 12 ladrillos. Si tenía menos de 12 queda en 0. -->
-- Arena a granel: agrega 20 kilos.
-- Batería antiaérea: descarga los misiles.
-- Contenedor portuario: hace que reaccione cada una de las cosas que tiene adentro (por ejemplo, si llevaba a Bumblebee, éste queda en modo robot).
-- Residuos radiactivos: agrega 15 kilos.
-- Embalaje de seguridad: nada.
+<!-- - Arena a granel: agrega 20 kilos. -->
+<!-- - Batería antiaérea: descarga los misiles. -->
+<!-- - Contenedor portuario: hace que reaccione cada una de las cosas que tiene adentro (por ejemplo, si llevaba a Bumblebee, éste queda en modo robot). -->
+<!-- - Residuos radiactivos: agrega 15 kilos. -->
+<!-- - Embalaje de seguridad: nada. -->
 
 Se pide modelar que un camión sufre un accidente, aplicando los efectos a las cosas cargadas.
 
@@ -208,7 +208,7 @@ Al producirse un accidente:
 - Residuos radiactivos quedan con 30 kg de peso.
 - La arena queda con 70 kg.
 - El paquete de ladrillos queda con 88 ladrillos.
-- La batería antiaérea queda descargada.
+La batería antiaérea queda descargada.
 
 ##### Caso 2
 Suponiendo que el camión tiene:
