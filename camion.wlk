@@ -1,7 +1,7 @@
-import cosas.*
+// import cosas.*
 
 object camion {
-	const property cosas = #{}
+	var property cosas = #{}
 	const pesoDeTara = 1000
 	
 	method cargar(unaCosa) {
@@ -39,11 +39,12 @@ object camion {
 		cosaPeligrosa
 	) = self.cargasConNivelDePeligrosidadMayorA(cosaPeligrosa.nivelPeligrosidad())
 	
-	method puedeCircularEnRuta(
-		maxNivelPeligrosidad
-	) = (not self.esExcesoDePeso()) and self.cargasConNivelDePeligrosidadMayorA(
-		maxNivelPeligrosidad
-	).isEmpty()
+	method puedeCircularEnRuta(maxNivelPeligrosidad){ 
+		return
+		(not self.esExcesoDePeso()) 
+		and 
+		self.cargasConNivelDePeligrosidadMayorA(maxNivelPeligrosidad).isEmpty()
+	}
 	
 	method cargaEntreMinimoYMaximoDelPeso(min, max) = self.cosas().any(
 		{ elementoCargado =>
@@ -72,5 +73,23 @@ object camion {
 
 	method sufrirAccidente(){
 		self.cosas().forEach{cosa => cosa.efectoDeAccidente()}
+	}
+
+	method descargarTodoEn(almacen){
+		self.cosas().forEach{cosa => almacen.almacenar(cosa)}
+		cosas = #{}
+	}
+
+	method puedeTransportarPor(trayecto){
+		return trayecto.requerimientos(self)
+	}
+
+	method transportar(destino, camino){
+		if (self.puedeTransportarPor(camino)){
+			self.descargarTodoEn(destino)
+		}
+		else{
+			throw new Exception(message = "Uno de los requerimientos para transportar por el camino deseado  no se cumplio")
+		}
 	}
 }
